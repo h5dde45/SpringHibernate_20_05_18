@@ -3,12 +3,14 @@ package com.books.dao;
 import com.books.model.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public class BookDaoImpl implements BookDao {
+    @Autowired
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -54,7 +56,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<Book> getBooks() {
+    public List<Book> listBooks() {
         Session session = sessionFactory.getCurrentSession();
         List<Book> bookList = session.createQuery("from Book").list();
         System.out.println("BookList: ");

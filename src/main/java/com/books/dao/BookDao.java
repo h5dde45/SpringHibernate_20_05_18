@@ -13,6 +13,6 @@ public interface BookDao {
 
     Book getBookById(int id);
 
-    List<Book> getBooks();
+    List<Book> listBooks();
 
 }
