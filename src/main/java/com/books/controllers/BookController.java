@@ -42,7 +42,12 @@ public class BookController {
     public String editBook(@PathVariable("id") int id, Model model) {
         model.addAttribute("book", bookService.getBookById(id));
         model.addAttribute("listBooks", bookService.listBooks());
-        bookService.removeBook(id);
         return "books";
+    }
+
+    @RequestMapping(value = "bookdata/{id}")
+    public String bookData(@PathVariable("id") int id, Model model) {
+        model.addAttribute("book", bookService.getBookById(id));
+        return "bookdata";
     }
 }

@@ -13,10 +13,6 @@ public class BookDaoImpl implements BookDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
     @Override
     public void addBook(Book book) {
         Session session = sessionFactory.getCurrentSession();
